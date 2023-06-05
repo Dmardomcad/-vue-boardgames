@@ -1,6 +1,6 @@
 <template>
     <h1>
-        HOME
+        LISTA DE JUEGOS
     </h1>
 </template>
 

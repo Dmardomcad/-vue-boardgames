@@ -1,7 +1,7 @@
 <template>
-    <h1>
-        HOME
-    </h1>
+    <div>
+        404
+    </div>
 </template>
 
 <script>
