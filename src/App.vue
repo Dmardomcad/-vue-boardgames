@@ -20,6 +20,7 @@ import Home from './views/Home.vue';
 <style scoped>
 header {
   line-height: 1.5;
+  display: flex;
 }
 
 .logo {

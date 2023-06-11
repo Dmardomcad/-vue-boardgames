@@ -1,10 +1,15 @@
 <template>
-    <nav>
-        <router-link to="/">Inicio</router-link>
-        <router-link to="/boardgames">Lista de juegos</router-link>
-        <div v-if="isLoggedIn">
-            <router-link to="/profile"> Perfil</router-link>
-        </div>
+    <nav class="nav-main">
+        <ul class="nav-list">
+            <li class="nav-item"><router-link to="/">Inicio</router-link></li>
+            <li class="nav-item"> <router-link to="/boardgames">Lista de juegos</router-link></li>
+            <li class="nav-item" v-if="isLoggedIn">
+                <router-link to="/profile"> Perfil</router-link>
+            </li>
+            <li class="nav-item" v-else>
+                <router-link to="/register"> <button class="btn-primary">REGISTRARSE</button></router-link>
+            </li>
+        </ul>
     </nav>
 </template>
 
