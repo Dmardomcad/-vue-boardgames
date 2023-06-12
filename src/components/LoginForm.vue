@@ -69,10 +69,7 @@ export default {
 
     submitForm() {
       // Si no hay errores, enviar el formulario
-      if (
-        !this.formErrors.emailError &&
-        !this.formErrors.passwordError
-      ) {
+      if (!this.formErrors.emailError && !this.formErrors.passwordError) {
         console.log("Formulario válido, logeando usuario...");
         console.log(this.formData);
       }

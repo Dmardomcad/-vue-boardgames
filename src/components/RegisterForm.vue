@@ -1,7 +1,7 @@
 <template>
   <h1>REGISTRO</h1>
-  <form @submit.prevent="submitForm">
-    <div>
+  <form class="register-form" @submit.prevent="submitForm">
+    <div class="register-container">
       <label for="username">Nombre de usuario:</label>
       <input
         type="text"
@@ -15,7 +15,7 @@
       </div>
     </div>
 
-    <div>
+    <div class="register-container">
       <label for="email">Email:</label>
       <input
         type="email"
@@ -29,7 +29,7 @@
       </div>
     </div>
 
-    <div>
+    <div class="register-container">
       <label for="password">Contraseña:</label>
       <input
         type="password"
@@ -42,12 +42,15 @@
         {{ formErrors.passwordError }}
       </div>
     </div>
-    <button type="submit">Registrarse</button>
-    
+    <button class="btn-primary" type="submit">Registrarse</button>
+
   </form>
 </template>
 
 <script>
+
+import axios from 'axios'
+
 export default {
   data() {
     return {
@@ -94,7 +97,7 @@ export default {
     },
 
     submitForm() {
-      // Si no hay errores, enviar el formulario
+      // If there are no errors, send the data
       if (
         !this.formErrors.usernameError &&
         !this.formErrors.emailError &&
@@ -102,6 +105,13 @@ export default {
       ) {
         console.log("Formulario válido, registrando usuario...");
         console.log(this.formData);
+        axios.post('https://boardgameapi-production.up.railway.app/users/create', this.formData)
+        .then(response =>
+          (console.log(response.data)
+        ))
+        .catch(error=>
+          (console.log(error)
+        ))
       }
     },
   },
@@ -109,6 +119,11 @@ export default {
 </script>
 
 <style>
+h1{
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
 .error {
   color: red;
 }

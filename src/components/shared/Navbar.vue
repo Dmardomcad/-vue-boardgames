@@ -1,8 +1,10 @@
 <template>
     <nav class="nav-main">
         <ul class="nav-list">
-            <li class="nav-item"><router-link to="/">Inicio</router-link></li>
+            <li class="nav-item"><router-link to="/"><img class="nav-img" src="@/assets/img/dice-game-icon.png" alt=""></router-link></li>
             <li class="nav-item"> <router-link to="/boardgames">Lista de juegos</router-link></li>
+            <li class="nav-item"> <router-link to="/publishers">Editoriales</router-link></li>
+            <li class="nav-item"> <router-link to="/community">Comunidades</router-link></li>
             <li class="nav-item" v-if="isLoggedIn">
                 <router-link to="/profile"> Perfil</router-link>
             </li>
@@ -30,5 +32,7 @@
 </script>
 
 <style lang="scss" scoped>
-
+    .nav-img {
+        width: 3rem;
+    }
 </style>
