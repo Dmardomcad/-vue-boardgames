@@ -112,6 +112,7 @@ export default {
         .catch(error=>
           (console.log(error)
         ))
+        this.$router.push('/') // redirect to home after registering
       }
     },
   },
