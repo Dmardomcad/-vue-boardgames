@@ -1,17 +1,17 @@
 <template>
   <h1>LOGIN</h1>
-  <form @submit.prevent="submitForm">
-    <div>
-      <label for="email">Email:</label>
+  <form class="register-form" @submit.prevent="submitForm">
+    <div class="register-container">
+      <label for="username">Username:</label>
       <input
-        type="email"
-        id="email"
-        v-model="formData.email"
-        @input="validateEmail"
+        type="text"
+        id="username"
+        v-model="formData.username"
+        @input="validateUsername"
         @keydown.space.prevent
       />
-      <div v-if="formErrors.emailError" class="error">
-        {{ formErrors.emailError }}
+      <div v-if="formErrors.usernameError" class="error">
+        {{ formErrors.usernameError }}
       </div>
     </div>
 
@@ -28,37 +28,38 @@
         {{ formErrors.passwordError }}
       </div>
     </div>
-    <button type="submit">Registrarse</button>
+    <button type="submit">Login</button>
   </form>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   data() {
     return {
       formData: {
-        email: "",
+        username: "",
         password: "",
       },
       formErrors: {
-        emailError: "",
+        usernameError: "",
         passwordError: "",
       },
     };
   },
   methods: {
-    validateEmail() {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(this.formData.email)) {
-        this.formErrors.emailError =
-          "Por favor, introduce una dirección de email válida.";
+    validateUsername() {
+      if (this.formData.username.length > 20) {
+        this.formErrors.usernameError =
+          "El nombre de usuario no puede tener más de 20 caracteres.";
       } else {
-        this.formErrors.emailError = "";
+        this.formErrors.usernameError = "";
       }
     },
-
     validatePassword() {
-      const passwordRegex = /^(?=.*[0-9]).{1,8}$/;
+      // Descomment after fixing cors
+      // const passwordRegex = /^(?=.*[0-9]).{1,8}$/;
       if (!passwordRegex.test(this.formData.password)) {
         this.formErrors.passwordError =
           "La contraseña debe tener entre 1 y 8 caracteres, y al menos debe tener un número.";
@@ -69,9 +70,18 @@ export default {
 
     submitForm() {
       // Si no hay errores, enviar el formulario
-      if (!this.formErrors.emailError && !this.formErrors.passwordError) {
+      if (!this.formErrors.usernameError && !this.formErrors.passwordError) {
         console.log("Formulario válido, logeando usuario...");
         console.log(this.formData);
+        axios.post('https://boardgameapi-production.up.railway.app/token', this.formData)
+        .then(response => {
+          const token = response.data;
+          console.log("Token de acceso", token)
+          this.$router.push('/') // redirect to home after registering
+        })
+        .catch(error=>
+          (console.log(error)
+        ))
       }
     },
   },
@@ -81,5 +91,8 @@ export default {
 <style>
 .error {
   color: red;
+}
+form {
+  margin: 0 auto
 }
 </style>
