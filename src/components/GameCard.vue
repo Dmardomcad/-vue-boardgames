@@ -2,6 +2,7 @@
   <div class="game-card">
     <router-link :to="'/boardgames/' + game.id">
       <h2>{{ game.name }}</h2>
+      <img class="game-img" :src="game.detailImage" :alt="game.name">
     </router-link>
     <p>{{ game.description }}</p>
     <p>Dificultad: {{ game.difficulty }}</p>

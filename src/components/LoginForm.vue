@@ -73,7 +73,12 @@ export default {
       if (!this.formErrors.usernameError && !this.formErrors.passwordError) {
         console.log("Formulario válido, logeando usuario...");
         console.log(this.formData);
-        axios.post('https://boardgameapi-production.up.railway.app/token', this.formData)
+        axios.post('https://boardgameapi-production.up.railway.app/token', {}, {
+          auth: {
+            username: this.formData.username,
+            password: this.formData.password
+          }
+        })
         .then(response => {
           const token = response.data;
           console.log("Token de acceso", token)
