@@ -2,7 +2,8 @@
   <section>
     <div v-if="loading"><Spinner /></div>
     <div v-else>
-      <GameCard v-for="game in games" :key="game.id" :game="game" />
+      <SearchBar @search="performSearch"/>
+      <GameCard v-for="game in filteredGames" :key="game.id" :game="game" />
     </div>
   </section>
 </template>
@@ -11,16 +12,19 @@
 import GameCard from "./GameCard.vue";
 import Spinner from "./Spinner.vue";
 import axios from "axios";
+import SearchBar from './SearchBar.vue'
 
 export default {
   components: {
     GameCard,
     Spinner,
+    SearchBar,
   },
   data() {
     return {
       loading: true,
       games: [],
+      filteredGames: []
     };
   },
   mounted() {
@@ -29,11 +33,23 @@ export default {
       .then((response) => {
         this.loading = false;
         this.games = response.data;
+        this.filteredGames = response.data
       })
       .catch((error) => {
         console.log(error);
       });
   },
+  methods: {
+    performSearch(searchTerm) {
+      if(searchTerm) {
+        this.filteredGames = this.games.filter(game => 
+        game.name.toLowerCase().includes(searchTerm.toLowerCase()))
+      }
+      else {
+        this.filteredGames = this.games
+      }
+    }
+  }
 };
 </script>
 

@@ -58,8 +58,7 @@ export default {
       }
     },
     validatePassword() {
-      // Descomment after fixing cors
-      // const passwordRegex = /^(?=.*[0-9]).{1,8}$/;
+      //const passwordRegex = /^(?=.*[0-9]).{1,8}$/;
       if (!passwordRegex.test(this.formData.password)) {
         this.formErrors.passwordError =
           "La contraseña debe tener entre 1 y 8 caracteres, y al menos debe tener un número.";
@@ -82,6 +81,7 @@ export default {
         .then(response => {
           const token = response.data;
           console.log("Token de acceso", token)
+          console.log("Usuario...", this.formData.username)
           this.$router.push('/') // redirect to home after registering
         })
         .catch(error=>
