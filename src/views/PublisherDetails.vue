@@ -3,7 +3,9 @@
     <h1>{{ publisher.name }}</h1>
     <h2>Juegos:</h2>
     <div v-for="game in publisher.boardgame" :key="game.id">
-      <h3>{{ game.name }}</h3>
+      <router-link :to="'/boardgames/' + game.id">
+        <h3>{{ game.name }}</h3>
+      </router-link>
       <p>{{ game.description }}</p>
       <img :src="game.detailImage" :alt="game.name" />
       <p>Duración: {{ game.duration }} minutos</p>

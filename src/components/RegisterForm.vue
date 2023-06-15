@@ -13,6 +13,9 @@
       <div v-if="formErrors.usernameError" class="error">
         {{ formErrors.usernameError }}
       </div>
+      <div v-if="formErrors.usernameExistsError" class="error">
+        {{ formErrors.usernameExistsError }}
+      </div>
     </div>
 
     <div class="register-container">
@@ -61,6 +64,7 @@ export default {
       },
       formErrors: {
         usernameError: "",
+        usernameExistsError: "",
         emailError: "",
         passwordError: "",
       },
@@ -74,8 +78,26 @@ export default {
       } else {
         this.formErrors.usernameError = "";
       }
-    },
 
+      if (this.formData.username) {
+        this.checkUsernameExists();
+      }
+    },
+    checkUsernameExists() {
+      axios
+        .get(`https://boardgameapi-production.up.railway.app/users/exists/${this.formData.username}`)
+        .then((response) => {
+          const exists = response.data.exists;
+          if (exists) {
+            this.formErrors.usernameExistsError = "Este nombre de usuario no está disponible.";
+          } else {
+            this.formErrors.usernameExistsError = "";
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    },
     validateEmail() {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(this.formData.email)) {
@@ -100,19 +122,24 @@ export default {
       // If there are no errors, send the data
       if (
         !this.formErrors.usernameError &&
+        !this.formErrors.usernameExistsError &&
         !this.formErrors.emailError &&
         !this.formErrors.passwordError
       ) {
         console.log("Formulario válido, registrando usuario...");
         console.log(this.formData);
-        axios.post('https://boardgameapi-production.up.railway.app/users/create', this.formData)
-        .then(response =>
-          (console.log(response.data)
-        ))
-        .catch(error=>
-          (console.log(error)
-        ))
-        this.$router.push('/') // redirect to home after registering
+        axios
+          .post(
+            'https://boardgameapi-production.up.railway.app/users/create',
+            this.formData
+          )
+          .then((response) => {
+            console.log(response.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+        this.$router.push('/login'); // redirect to login after registering
       }
     },
   },
