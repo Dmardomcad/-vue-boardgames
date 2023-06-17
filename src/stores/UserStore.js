@@ -7,18 +7,22 @@ export const useUserStore = defineStore("UserStore", {
         token: localStorage.getItem('token') || '',
     }),
     actions: {
-        login(bool) {
+        login() {
             this.isLoggedIn = true
-            localStorage.setItem('isLoggedIn', bool.toString())
         },
         logout(){
-            this.isLoggedIn = false,
-            this.username = '',
+            this.isLoggedIn = false
+            this.username = ''
+            this.token = ''
             localStorage.clear()
         },
         setToken(token) {
-            this.toke = token,
+            this.token = token,
             localStorage.setItem('token', token)
+        },
+        setUsername(username) {
+            this.username = username
+            localStorage.setItem('username', username)
         }
     }
 })

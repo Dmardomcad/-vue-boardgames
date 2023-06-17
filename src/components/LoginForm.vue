@@ -34,6 +34,7 @@
 
 <script>
 import axios from 'axios'
+import { useUserStore } from '../stores/UserStore'
 
 export default {
   data() {
@@ -68,7 +69,7 @@ export default {
     },
 
     submitForm() {
-      // Si no hay errores, enviar el formulario
+      // if there are no errors send the data
       if (!this.formErrors.usernameError && !this.formErrors.passwordError) {
         console.log("Formulario válido, logeando usuario...");
         console.log(this.formData);
@@ -82,6 +83,11 @@ export default {
           const token = response.data;
           console.log("Token de acceso", token)
           console.log("Usuario...", this.formData.username)
+          // Save data using the UserStore
+          const userStore = useUserStore()
+          userStore.login()
+          userStore.setToken(token)
+          userStore.setUsername(this.formData.username)
           this.$router.push('/') // redirect to home after registering
         })
         .catch(error=>

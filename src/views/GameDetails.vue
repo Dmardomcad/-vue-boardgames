@@ -7,6 +7,16 @@
     <p>Descripcion: {{ game.description }}</p>
     <h2>ID del juego: {{ $route.params.id }}</h2>
   </div>
+  <h2>COMENTARIOS:</h2>
+  <div v-if="comment.length > 0">
+    <h2>Comentarios:</h2>
+    <ul>
+      <li v-for="comment in comment" :key="comment.id">{{ comment.content }}</li>
+    </ul>
+  </div>
+  <div v-else>
+    <h2>Este juego no tiene comentarios</h2>
+  </div>
 </template>
 
 <script>
@@ -16,6 +26,7 @@ export default {
   data() {
     return {
       game: "",
+      comment: []
     };
   },
   mounted() {
@@ -30,6 +41,7 @@ export default {
         )
         .then((response) => {
           this.game = response.data;
+          this.comment = response.data.comment ||[]
         })
         .catch((error) => {
           console.error(error);
