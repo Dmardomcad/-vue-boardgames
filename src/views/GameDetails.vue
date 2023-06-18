@@ -71,13 +71,12 @@ export default {
   },
   methods: {
     validateComment() {
-      if(this.commentData.content.length > 200) {
-        this.commentErrors.errorText = "El comentario es demasiado largo"
-      } else if(this.commentData.content.length < 10) {
-        this.commentErrors.errorText = "El comentario es demasiado corto"
-      }
-      else {
-        this.commentErrors.errorText = ""
+      if (this.commentData.content.length > 200) {
+        this.commentErrors.errorText = "El comentario es demasiado largo";
+      } else if (this.commentData.content.length < 10) {
+        this.commentErrors.errorText = "El comentario es demasiado corto";
+      } else {
+        this.commentErrors.errorText = "";
       }
     },
     fetchGameDetails() {
@@ -96,10 +95,53 @@ export default {
         });
     },
     submitComment() {
-      const gameId = this.$route.params.id
-      const content = this.commentData.content
-      const userId = ""
-    }
+      const token = localStorage.getItem("token");
+      const gameId = this.$route.params.id;
+      const content = this.commentData.content;
+      const username = localStorage.getItem("username");
+      if (content.length > 10) {
+        axios
+          .get(
+            `https://boardgameapi-production.up.railway.app/users/${username}`
+          )
+          .then((response) => {
+            const user = response.data;
+            const userId = user.id;
+            axios
+              .post(
+                "https://boardgameapi-production.up.railway.app/comments/create",
+                {
+                  content: content,
+                  user: {
+                    id: userId,
+                  },
+                  boardgame: {
+                    id: gameId,
+                  },
+                },
+                {
+                  headers: {
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json",
+                  },
+                }
+              )
+              .then((response) => {
+                console.log(response.data);
+                this.fetchGameDetails();
+                this.commentData.content = "";
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      } else {
+        this.commentErrors.errorText = "Comentario demasiado corto";
+      }
+    },
   },
   computed: {
     isLoggedIn() {
