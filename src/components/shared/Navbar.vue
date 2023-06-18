@@ -15,7 +15,7 @@
       <li class="nav-item">
         <router-link to="/community">Comunidades</router-link>
       </li>
-      <li class="nav-item" v-if="isLoggedIn">
+      <li class="nav-item" v-if="user.isLoggedIn">
         <router-link to="/profile"> Perfil</router-link>
       </li>
       <li class="nav-item" v-else>
@@ -29,21 +29,13 @@
 </template>
 
 <script>
-import { computed, onMounted } from "vue";
 import { useUserStore } from "@/stores/UserStore.js";
 
 export default {
   setup() {
-    const userStore = useUserStore();
-    const isLoggedIn = computed(() => userStore.isLoggedIn);
-
-    onMounted(() => {
-      if (localStorage.getItem("token")) {
-        userStore.login();
-      }
-    });
+    const user = useUserStore();
     return {
-      isLoggedIn,
+      user,
     };
   },
 };

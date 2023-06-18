@@ -1,16 +1,12 @@
 <template>
-    <div>
-        <h1>404</h1>
-        <router-link to="/"> GO BACK</router-link>
-    </div>
+  <div>
+    <h1>404</h1>
+    <router-link to="/"> GO BACK</router-link>
+  </div>
 </template>
 
 <script>
-    export default {
-        
-    }
+export default {};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

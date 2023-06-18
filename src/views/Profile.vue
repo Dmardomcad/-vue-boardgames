@@ -6,23 +6,23 @@
       <p><strong>Email:</strong> {{ email }}</p>
     </div>
     <div v-if="!comments">
-    <h2>Este usuario no ha realizado ningún comentario...</h2>
-  </div>
-  <div v-else-if="comments && comments.length > 0">
-    <h2>Comentarios:</h2>
-    <ul>
-      <li v-for="comment in comments" :key="comment.id">
-        {{ comment.text }}
-      </li>
-    </ul>
-  </div>
+      <h2>Este usuario no ha realizado ningún comentario...</h2>
+    </div>
+    <div v-else-if="comments && comments.length > 0">
+      <h2>Comentarios:</h2>
+      <ul>
+        <li v-for="comment in comments" :key="comment.id">
+          {{ comment.text }}
+        </li>
+      </ul>
+    </div>
     <button @click="logout">Logout</button>
   </div>
 </template>
-  
+
 <script>
-import axios from 'axios';
-import { useUserStore } from '../stores/UserStore';
+import axios from "axios";
+import { useUserStore } from "../stores/UserStore";
 
 export default {
   computed: {
@@ -34,8 +34,8 @@ export default {
 
   data() {
     return {
-      email: '',
-      comments: []
+      email: "",
+      comments: [],
     };
   },
 
@@ -46,12 +46,14 @@ export default {
   methods: {
     fetchUserData() {
       axios
-        .get(`https://boardgameapi-production.up.railway.app/users/${this.username}`)
+        .get(
+          `https://boardgameapi-production.up.railway.app/users/${this.username}`
+        )
         .then((response) => {
           const userData = response.data;
           this.email = userData.email;
-          this.comments = userData.comments
-          console.log(userData)
+          this.comments = userData.comments;
+          console.log(userData);
         })
         .catch((error) => {
           console.error(error);
@@ -61,7 +63,7 @@ export default {
     logout() {
       const userStore = useUserStore();
       userStore.logout();
-      this.$router.push('/');
+      this.$router.push("/");
     },
   },
 };

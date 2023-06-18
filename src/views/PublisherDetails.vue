@@ -15,12 +15,12 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 
 export default {
   data() {
     return {
-      publisher: '',
+      publisher: "",
     };
   },
   mounted() {
@@ -30,7 +30,9 @@ export default {
     fetchPublisherDetails() {
       const publisherID = this.$route.params.id;
       axios
-        .get(`https://boardgameapi-production.up.railway.app/publishers/${publisherID}`)
+        .get(
+          `https://boardgameapi-production.up.railway.app/publishers/${publisherID}`
+        )
         .then((response) => {
           this.publisher = response.data;
         })
@@ -42,5 +44,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

@@ -1,19 +1,19 @@
 <script setup>
-import Navbar from './components/shared/Navbar.vue';
-import FooterNav from './components/shared/FooterNav.vue';
-import Home from './views/Home.vue';
+import Navbar from "./components/shared/Navbar.vue";
+import FooterNav from "./components/shared/FooterNav.vue";
+import Home from "./views/Home.vue";
 </script>
 
 <template>
   <header>
-    <Navbar/>
+    <Navbar />
   </header>
 
   <main>
-    <router-view/>
+    <router-view />
   </main>
   <footer>
-    <FooterNav/>
+    <FooterNav />
   </footer>
 </template>
 
