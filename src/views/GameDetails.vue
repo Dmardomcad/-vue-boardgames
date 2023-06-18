@@ -27,6 +27,12 @@
       <li v-for="comment in comments" :key="comment.id">
         <h4>{{ comment.username }}</h4>
         <p>{{ comment.content }}</p>
+        <button
+          v-if="isCommentOwner(comment)"
+          @click="deleteComment(comment.id)"
+        >
+          BORRAR COMENTARIO
+        </button>
       </li>
     </ul>
   </div>
@@ -141,6 +147,30 @@ export default {
       } else {
         this.commentErrors.errorText = "Comentario demasiado corto";
       }
+    },
+    isCommentOwner(comment) {
+      const username = localStorage.getItem("username");
+      return comment.username === username;
+    },
+    deleteComment(commentId) {
+      const token = localStorage.getItem("token");
+
+      axios
+        .delete(
+          `https://boardgameapi-production.up.railway.app/comments/${commentId}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
+        .then((response) => {
+          console.log(response.data);
+          this.fetchGameDetails();
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
   },
   computed: {
