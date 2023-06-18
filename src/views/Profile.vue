@@ -5,14 +5,16 @@
       <p><strong>Username:</strong> {{ username }}</p>
       <p><strong>Email:</strong> {{ email }}</p>
     </div>
-    <div v-if="!comments">
+    <div v-if="comments.length === 0">
       <h2>Este usuario no ha realizado ningún comentario...</h2>
     </div>
     <div v-else-if="comments && comments.length > 0">
       <h2>Comentarios:</h2>
       <ul>
         <li v-for="comment in comments" :key="comment.id">
-          {{ comment.text }}
+          <router-link :to="'/boardgames/' + comment.boardgameId">
+            <h4>{{ comment.content }}</h4>
+          </router-link>
         </li>
       </ul>
     </div>

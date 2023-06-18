@@ -1,8 +1,7 @@
 <template>
-  <div>
-    <section>
+    <section class="publisher-section">
       <div v-if="loading"><Spinner /></div>
-      <div v-else>
+      <div class="publishers-container" v-else>
         <PublisherCard
           v-for="publisher in publishers"
           :key="publisher.id"
@@ -10,7 +9,6 @@
         />
       </div>
     </section>
-  </div>
 </template>
 
 <script>

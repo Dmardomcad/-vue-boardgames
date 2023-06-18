@@ -18,7 +18,6 @@
         maxlength="201"
         v-model="commentData.content"
         @input="validateComment"
-        @keydown.space.prevent
       />
       <span v-if="commentErrors.errorText">{{ commentErrors.errorText }}</span>
       <button type="submit">Send comment</button>
@@ -47,7 +46,6 @@
         maxlength="201"
         v-model="commentData.content"
         @input="validateComment"
-        @keydown.space.prevent
       />
       <span v-if="commentErrors.errorText">{{ commentErrors.errorText }}</span>
       <button type="submit">Send comment</button>

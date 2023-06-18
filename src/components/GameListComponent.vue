@@ -9,7 +9,7 @@
         <button
           v-for="category in categories"
           :key="category"
-          :class="{ selected: selectedCategory === category }"
+          :class="{ 'boardgames-category-button': true, selected: selectedCategory === category }"
           @click="filterByCategory(category)"
         >
           {{ category }}

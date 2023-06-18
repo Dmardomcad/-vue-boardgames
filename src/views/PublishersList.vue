@@ -1,8 +1,6 @@
 <template>
-  <div>
     <h1>LISTA DE EDITORES</h1>
     <PublisherListComponent />
-  </div>
 </template>
 
 <script>
