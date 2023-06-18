@@ -9,8 +9,20 @@
   </div>
   <div v-if="comments.length > 0">
     <h2>Comentarios:</h2>
-    <label for="comment">Aquí tu comentario</label>
-    <input type="text" placeholder="Comentario..." name="comment" />
+    <form v-if="isLoggedIn" @submit.prevent="submitComment">
+      <label for="comment">Aquí tu comentario</label>
+      <input
+        type="text"
+        placeholder="Comentario..."
+        name="comment"
+        maxlength="201"
+        v-model="commentData.content"
+        @input="validateComment"
+        @keydown.space.prevent
+      />
+      <span v-if="commentErrors.errorText">{{ commentErrors.errorText }}</span>
+      <button type="submit">Send comment</button>
+    </form>
     <ul>
       <li v-for="comment in comments" :key="comment.id">
         <h4>{{ comment.username }}</h4>
@@ -20,8 +32,20 @@
   </div>
   <div v-else>
     <h2>Este juego no tiene comentarios</h2>
-    <label for="comment">Se el primero en comentar...</label>
-    <input type="text" placeholder="Comentario..." name="comment" />
+    <form v-if="isLoggedIn" @submit.prevent="submitComment">
+      <label for="comment">Se el primero en comentar...</label>
+      <input
+        type="text"
+        placeholder="Comentario..."
+        name="comment"
+        maxlength="201"
+        v-model="commentData.content"
+        @input="validateComment"
+        @keydown.space.prevent
+      />
+      <span v-if="commentErrors.errorText">{{ commentErrors.errorText }}</span>
+      <button type="submit">Send comment</button>
+    </form>
   </div>
 </template>
 
@@ -32,6 +56,12 @@ import { useUserStore } from "@/stores/UserStore.js";
 export default {
   data() {
     return {
+      commentData: {
+        content: "",
+      },
+      commentErrors: {
+        errorText: "",
+      },
       game: "",
       comments: [],
     };
@@ -40,6 +70,16 @@ export default {
     this.fetchGameDetails();
   },
   methods: {
+    validateComment() {
+      if(this.commentData.content.length > 200) {
+        this.commentErrors.errorText = "El comentario es demasiado largo"
+      } else if(this.commentData.content.length < 10) {
+        this.commentErrors.errorText = "El comentario es demasiado corto"
+      }
+      else {
+        this.commentErrors.errorText = ""
+      }
+    },
     fetchGameDetails() {
       const gameId = this.$route.params.id;
       axios
@@ -54,6 +94,17 @@ export default {
         .catch((error) => {
           console.error(error);
         });
+    },
+    submitComment() {
+      const gameId = this.$route.params.id
+      const content = this.commentData.content
+      const userId = ""
+    }
+  },
+  computed: {
+    isLoggedIn() {
+      const UserStore = useUserStore();
+      return UserStore.isLoggedIn;
     },
   },
 };
