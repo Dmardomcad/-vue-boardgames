@@ -29,6 +29,7 @@
       </div>
     </div>
     <button type="submit">Login</button>
+    <p><router-link to="/register">No tengo una cuenta...</router-link></p>
   </form>
 </template>
 

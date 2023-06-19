@@ -46,7 +46,7 @@
       </div>
     </div>
     <button class="btn-primary" type="submit">Registrarse</button>
-
+    <p><router-link to="/login">Ya tengo una cuenta...</router-link></p>
   </form>
 </template>
 

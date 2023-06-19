@@ -19,10 +19,12 @@
         <router-link to="/profile"> Perfil</router-link>
       </li>
       <li class="nav-item" v-else>
-        <router-link to="/register">
-          <button class="btn-primary">REGISTRARSE</button></router-link
-        >
-        <router-link to="/login"> <sub>¿Ya tienes cuenta?...</sub></router-link>
+        <div class="nav-item-register">
+          <router-link to="/register">
+            <button class="btn-primary">REGISTRARSE</button></router-link
+          >
+          <router-link to="/login"> <sub>¿Ya tienes cuenta?...</sub></router-link>
+        </div>
       </li>
     </ul>
   </nav>

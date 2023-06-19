@@ -22,13 +22,5 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-img {
-  width: 50vw;
-}
-.home-title {
-  display: flex;
-  justify-content: center;
-  font-size: 4rem;
-  padding: 20px;
-}
+
 </style>
