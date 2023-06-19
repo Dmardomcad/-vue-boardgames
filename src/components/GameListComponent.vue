@@ -123,7 +123,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.selected {
-  color: red;
-}
+
 </style>

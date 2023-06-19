@@ -1,17 +1,18 @@
 <template>
-  <div>
-    <h1>Detalles del juego</h1>
+  <h1>Detalles del juego</h1>
+  <section class="boardgame-details">
     <h2>{{ game.name }}</h2>
-    <img :src="game.detailImage" :alt="game.name" />
+    <img class="boardgame-img" :src="game.detailImage" :alt="game.name" />
     <h3>Dificultad: {{ game.difficulty }}</h3>
     <p>Descripcion: {{ game.description }}</p>
     <h2>ID del juego: {{ $route.params.id }}</h2>
-  </div>
-  <div v-if="comments.length > 0">
+  </section>
+  <section class="comments-section" v-if="comments.length > 0">
     <h2>Comentarios:</h2>
-    <form v-if="isLoggedIn" @submit.prevent="submitComment">
-      <label for="comment">Aquí tu comentario</label>
+    <form class="comment-form" v-if="isLoggedIn" @submit.prevent="submitComment">
+      <label class="comment-label" for="comment">Aquí tu comentario</label>
       <input
+        class="comment-input"
         type="text"
         placeholder="Comentario..."
         name="comment"
@@ -20,11 +21,11 @@
         @input="validateComment"
       />
       <span v-if="commentErrors.errorText">{{ commentErrors.errorText }}</span>
-      <button type="submit">Send comment</button>
+      <button type="submit">Enviar comentario</button>
     </form>
-    <ul>
-      <li v-for="comment in comments" :key="comment.id">
-        <h4>{{ comment.username }}</h4>
+    <ul class="comment-list">
+      <li class="comment-list-item" v-for="comment in comments" :key="comment.id">
+        <h2>{{ comment.username }}</h2>
         <p>{{ comment.content }}</p>
         <button
           v-if="isCommentOwner(comment)"
@@ -34,12 +35,13 @@
         </button>
       </li>
     </ul>
-  </div>
-  <div v-else>
+  </section>
+  <section class="comments-section" v-else>
     <h2>Este juego no tiene comentarios</h2>
-    <form v-if="isLoggedIn" @submit.prevent="submitComment">
-      <label for="comment">Se el primero en comentar...</label>
+    <form class="comment-form" v-if="isLoggedIn" @submit.prevent="submitComment">
+      <label class="comment-label" for="comment">Se el primero en comentar...</label>
       <input
+        class="comment-input"
         type="text"
         placeholder="Comentario..."
         name="comment"
@@ -48,9 +50,9 @@
         @input="validateComment"
       />
       <span v-if="commentErrors.errorText">{{ commentErrors.errorText }}</span>
-      <button type="submit">Send comment</button>
+      <button class="primary-btn" type="submit">Enviar comentario</button>
     </form>
-  </div>
+  </section>
 </template>
 
 <script>

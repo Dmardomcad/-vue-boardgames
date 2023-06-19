@@ -10,6 +10,7 @@ import Community from "../views/Community.vue";
 import Register from "../views/Register.vue";
 import Login from "../views/Login.vue";
 import NotFound from "../components/shared/NotFound.vue";
+import Contact from "../views/Contact.vue"
 
 const routes = [
   { path: "/", component: Home },
@@ -17,6 +18,7 @@ const routes = [
   { path: "/boardgames/:id", component: GameDetails },
   { path: "/publishers", component: PublishersList },
   { path: "/publishers/:id", component: PublisherDetails},
+  { path: "/contact", component: Contact},
   { path: "/community", component: Community },
   { path: "/profile", component: Profile },
   { path: "/register", component: Register },

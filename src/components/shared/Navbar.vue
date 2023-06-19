@@ -16,7 +16,10 @@
         <router-link to="/community">Comunidades</router-link>
       </li>
       <li class="nav-item" v-if="user.isLoggedIn">
-        <router-link to="/profile"> Perfil</router-link>
+        <div>
+          <router-link to="/profile"> Perfil</router-link>
+          <button class="btn-primary-logout" @click="logout">Logout</button>
+        </div>
       </li>
       <li class="nav-item" v-else>
         <div class="nav-item-register">
@@ -40,6 +43,13 @@ export default {
       user,
     };
   },
+  methods:{
+    logout() {
+      const userStore = useUserStore();
+      userStore.logout();
+      this.$router.push("/");
+    },
+  }
 };
 </script>
 

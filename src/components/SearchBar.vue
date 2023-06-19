@@ -1,7 +1,8 @@
 <template>
   <input
+    class="game-searchbar"
     type="text"
-    placeholder="Buscar juegos de mesa..."
+    placeholder="Buscar juegos..."
     v-model="searchTerm"
     @input="search"
   />
