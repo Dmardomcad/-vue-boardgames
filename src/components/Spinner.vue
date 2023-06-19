@@ -27,7 +27,7 @@ export default {};
   height: 20px;
   position: absolute;
   border-radius: 50%;
-  background-color: #fff;
+  background-color: #b17443;
   left: 15%;
   transform-origin: 50%;
   animation: circle7124 0.5s alternate infinite ease;

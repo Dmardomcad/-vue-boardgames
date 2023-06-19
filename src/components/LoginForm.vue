@@ -28,7 +28,7 @@
         {{ formErrors.passwordError }}
       </div>
     </div>
-    <button type="submit">Login</button>
+    <button class="btn-primary" type="submit">Login</button>
     <p><router-link to="/register">No tengo una cuenta...</router-link></p>
   </form>
 </template>
@@ -92,7 +92,7 @@ export default {
           this.$router.push('/') // redirect to home after registering
         })
         .catch(error=>
-          (console.log(error)
+          (this.formErrors.passwordError="Tu contraseña o nombre de usuario no coinciden"
         ))
       }
     },

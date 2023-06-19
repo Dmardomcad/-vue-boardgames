@@ -1,25 +1,26 @@
 <template>
-  <div>
     <h1>Profile</h1>
-    <div>
-      <p><strong>Username:</strong> {{ username }}</p>
-      <p><strong>Email:</strong> {{ email }}</p>
-    </div>
-    <div v-if="comments.length === 0">
-      <h2>Este usuario no ha realizado ningún comentario...</h2>
-    </div>
-    <div v-else-if="comments && comments.length > 0">
-      <h2>Comentarios:</h2>
-      <ul>
-        <li v-for="comment in comments" :key="comment.id">
-          <router-link :to="'/boardgames/' + comment.boardgameId">
-            <h4>{{ comment.content }}</h4>
-          </router-link>
-        </li>
-      </ul>
-    </div>
-    <button @click="logout">Logout</button>
-  </div>
+    <section class="user-page">
+      <section class="user-info">
+        <p><strong>Username:</strong> {{ username }}</p>
+        <p><strong>Email:</strong> {{ email }}</p>
+      </section>
+
+      <div v-if="comments.length === 0">
+        <h2>Comentarios:</h2>
+        <h2>Este usuario no ha realizado ningún comentario...</h2>
+      </div>
+      <section class="user-comments" v-else-if="comments && comments.length > 0">
+        <h2>Comentarios:</h2>
+        <ul class="profile-comments-list">
+          <li class="profile-comments-list-item" v-for="comment in comments" :key="comment.id">
+            <router-link :to="'/boardgames/' + comment.boardgameId">
+              <p>{{ comment.content }}</p>
+            </router-link>
+          </li>
+        </ul>
+      </section>
+    </section>
 </template>
 
 <script>
@@ -60,12 +61,6 @@ export default {
         .catch((error) => {
           console.error(error);
         });
-    },
-
-    logout() {
-      const userStore = useUserStore();
-      userStore.logout();
-      this.$router.push("/");
     },
   },
 };

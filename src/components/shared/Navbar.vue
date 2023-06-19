@@ -12,9 +12,10 @@
       <li class="nav-item">
         <router-link to="/publishers">Editoriales</router-link>
       </li>
+<!--  TFG page    
       <li class="nav-item">
         <router-link to="/community">Comunidades</router-link>
-      </li>
+      </li> -->
       <li class="nav-item" v-if="user.isLoggedIn">
         <div>
           <router-link to="/profile"> Perfil</router-link>
@@ -24,9 +25,11 @@
       <li class="nav-item" v-else>
         <div class="nav-item-register">
           <router-link to="/register">
-            <button class="btn-primary">REGISTRARSE</button></router-link
-          >
-          <router-link to="/login"> <sub>¿Ya tienes cuenta?...</sub></router-link>
+            <button class="btn-primary">REGISTRARSE</button>
+          </router-link>
+          <router-link to="/login">
+            <sub>¿Ya tienes cuenta?...</sub>
+          </router-link>
         </div>
       </li>
     </ul>
@@ -43,13 +46,13 @@ export default {
       user,
     };
   },
-  methods:{
+  methods: {
     logout() {
       const userStore = useUserStore();
       userStore.logout();
       this.$router.push("/");
     },
-  }
+  },
 };
 </script>
 

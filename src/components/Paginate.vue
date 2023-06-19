@@ -39,16 +39,22 @@
   }
   
   button {
-    margin: 0 5px;
+    font-size: 18px;
     padding: 10px;
-    border: none;
-    background-color: #2569a8;
-    cursor: pointer;
-    border-radius: 20%;
+    border: transparent;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    background: dodgerblue;
+    color: white;
+    border-radius: 4px;
+    margin: 0.6rem;
+    border-radius: 9999px;
   }
-  
+  button:hover {
+    background: #29216e;
+    cursor: pointer
+  }
   button.active {
-    font-weight: bold;
     background-color: #29216e;
+    color: white;
   }
   </style>

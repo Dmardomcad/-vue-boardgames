@@ -1,11 +1,12 @@
 <template>
-  <h1>Detalles del juego</h1>
+  <h2 class="game-details-title">{{ game.name }}</h2>
   <section class="boardgame-details">
-    <h2>{{ game.name }}</h2>
     <img class="boardgame-img" :src="game.detailImage" :alt="game.name" />
-    <h3>Dificultad: {{ game.difficulty }}</h3>
-    <p>Descripcion: {{ game.description }}</p>
-    <h2>ID del juego: {{ $route.params.id }}</h2>
+    <div class="boardgame-info">
+      <p>Dificultad: {{ game.difficulty }}</p>
+      <p> Categoría: {{ game.category }}</p>
+      <p>Descripcion: {{ game.description }}</p>
+    </div>
   </section>
   <section class="comments-section" v-if="comments.length > 0">
     <h2>Comentarios:</h2>
@@ -25,6 +26,7 @@
     </form>
     <ul class="comment-list">
       <li class="comment-list-item" :class="{ 'comment-list-item-odd': index % 2 === 1 }" v-for="(comment, index) in comments" :key="comment.id">
+        <sub>By:</sub>
         <h2>{{ comment.username }}</h2>
         <p>{{ comment.content }}</p>
         <button
