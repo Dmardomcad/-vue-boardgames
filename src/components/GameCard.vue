@@ -5,7 +5,6 @@
       <img class="game-img" :src="game.detailImage" :alt="game.name" />
     </router-link>
     <p>{{ game.description }}</p>
-    <p>Dificultad: {{ game.difficulty }}</p>
   </div>
 </template>
 

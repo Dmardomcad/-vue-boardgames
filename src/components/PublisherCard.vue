@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="publisher-card">
     <router-link :to="'/publishers/' + publisher.id">
       <h2>{{ publisher.name }}</h2>
       <img class="publisher-img" :src="publisher.imagePublisher" alt="">

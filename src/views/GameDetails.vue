@@ -21,13 +21,14 @@
         @input="validateComment"
       />
       <span v-if="commentErrors.errorText">{{ commentErrors.errorText }}</span>
-      <button type="submit">Enviar comentario</button>
+      <button class="btn-primary" type="submit">Enviar comentario</button>
     </form>
     <ul class="comment-list">
-      <li class="comment-list-item" v-for="comment in comments" :key="comment.id">
+      <li class="comment-list-item" :class="{ 'comment-list-item-odd': index % 2 === 1 }" v-for="(comment, index) in comments" :key="comment.id">
         <h2>{{ comment.username }}</h2>
         <p>{{ comment.content }}</p>
         <button
+          class="comment-delete-button"
           v-if="isCommentOwner(comment)"
           @click="deleteComment(comment.id)"
         >
@@ -50,7 +51,7 @@
         @input="validateComment"
       />
       <span v-if="commentErrors.errorText">{{ commentErrors.errorText }}</span>
-      <button class="primary-btn" type="submit">Enviar comentario</button>
+      <button class="btn-primary" type="submit">Enviar comentario</button>
     </form>
   </section>
 </template>
@@ -182,4 +183,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+  .btn-primary {
+    margin-left: 1rem;
+  }
+</style>

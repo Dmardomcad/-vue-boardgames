@@ -1,23 +1,22 @@
 <template>
-  <div>
     <h1>{{ publisher.name }}</h1>
-    <h2>Juegos:</h2>
-    <div v-for="game in publisher.boardgame" :key="game.id">
-      <router-link :to="'/boardgames/' + game.id">
-        <h3>{{ game.name }}</h3>
-      </router-link>
-      <p>{{ game.description }}</p>
-      <img :src="game.detailImage" :alt="game.name" />
-      <p>Duración: {{ game.duration }} minutos</p>
-      <p>Dificultad: {{ game.difficulty }}</p>
-    </div>
-  </div>
+    <p>{{ publisher.info }}</p>
+    <section>
+      <h2>Juegos:</h2>
+        <div class="game-card-container">
+          <GameCard v-for="game in publisher.boardgame" :key="game.id" :game="game" />
+        </div>
+    </section>
 </template>
 
 <script>
+import GameCard from "../components/GameCard.vue";
 import axios from "axios";
 
 export default {
+  components: {
+    GameCard
+  },
   data() {
     return {
       publisher: "",
@@ -44,4 +43,10 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+  h2 {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+  }
+</style>
