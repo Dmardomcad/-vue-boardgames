@@ -1,12 +1,16 @@
 <template>
-    <h1>{{ publisher.name }}</h1>
-    <p>{{ publisher.info }}</p>
-    <section>
-      <h2>Juegos:</h2>
-        <div class="game-card-container">
-          <GameCard v-for="game in publisher.boardgame" :key="game.id" :game="game" />
-        </div>
-    </section>
+  <h1>{{ publisher.name }}</h1>
+  <p class="publisher-info">{{ publisher.info }}</p>
+  <section>
+    <h2>Juegos:</h2>
+    <div class="game-card-container">
+      <GameCard
+        v-for="game in publisher.boardgame"
+        :key="game.id"
+        :game="game"
+      />
+    </div>
+  </section>
 </template>
 
 <script>
@@ -15,7 +19,7 @@ import axios from "axios";
 
 export default {
   components: {
-    GameCard
+    GameCard,
   },
   data() {
     return {
@@ -44,9 +48,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  h2 {
-    display: flex;
-    justify-content: center;
-    margin: 1rem;
-  }
+h2 {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
 </style>

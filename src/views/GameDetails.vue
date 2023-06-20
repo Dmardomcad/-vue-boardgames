@@ -4,13 +4,17 @@
     <img class="boardgame-img" :src="game.detailImage" :alt="game.name" />
     <div class="boardgame-info">
       <p>Dificultad: {{ game.difficulty }}</p>
-      <p> Categoría: {{ game.category }}</p>
+      <p>Categoría: {{ game.category }}</p>
       <p>Descripcion: {{ game.description }}</p>
     </div>
   </section>
   <section class="comments-section" v-if="comments.length > 0">
     <h2>Comentarios:</h2>
-    <form class="comment-form" v-if="isLoggedIn" @submit.prevent="submitComment">
+    <form
+      class="comment-form"
+      v-if="isLoggedIn"
+      @submit.prevent="submitComment"
+    >
       <label class="comment-label" for="comment">Aquí tu comentario</label>
       <input
         class="comment-input"
@@ -25,7 +29,12 @@
       <button class="btn-primary" type="submit">Enviar comentario</button>
     </form>
     <ul class="comment-list">
-      <li class="comment-list-item" :class="{ 'comment-list-item-odd': index % 2 === 1 }" v-for="(comment, index) in comments" :key="comment.id">
+      <li
+        class="comment-list-item"
+        :class="{ 'comment-list-item-odd': index % 2 === 1 }"
+        v-for="(comment, index) in comments"
+        :key="comment.id"
+      >
         <sub>By:</sub>
         <h2>{{ comment.username }}</h2>
         <p>{{ comment.content }}</p>
@@ -41,8 +50,14 @@
   </section>
   <section class="comments-section" v-else>
     <h2>Este juego no tiene comentarios</h2>
-    <form class="comment-form" v-if="isLoggedIn" @submit.prevent="submitComment">
-      <label class="comment-label" for="comment">Se el primero en comentar...</label>
+    <form
+      class="comment-form"
+      v-if="isLoggedIn"
+      @submit.prevent="submitComment"
+    >
+      <label class="comment-label" for="comment"
+        >Se el primero en comentar...</label
+      >
       <input
         class="comment-input"
         type="text"
@@ -186,7 +201,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .btn-primary {
-    margin-left: 1rem;
-  }
+.btn-primary {
+  margin-left: 1rem;
+}
 </style>

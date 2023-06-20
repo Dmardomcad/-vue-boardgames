@@ -51,8 +51,7 @@
 </template>
 
 <script>
-
-import axios from 'axios'
+import axios from "axios";
 
 export default {
   data() {
@@ -85,11 +84,14 @@ export default {
     },
     checkUsernameExists() {
       axios
-        .get(`https://boardgameapi-production.up.railway.app/users/exists/${this.formData.username}`)
+        .get(
+          `https://boardgameapi-production.up.railway.app/users/exists/${this.formData.username}`
+        )
         .then((response) => {
           const exists = response.data.exists;
           if (exists) {
-            this.formErrors.usernameExistsError = "Este nombre de usuario no está disponible.";
+            this.formErrors.usernameExistsError =
+              "Este nombre de usuario no está disponible.";
           } else {
             this.formErrors.usernameExistsError = "";
           }
@@ -130,7 +132,7 @@ export default {
         console.log(this.formData);
         axios
           .post(
-            'https://boardgameapi-production.up.railway.app/users/create',
+            "https://boardgameapi-production.up.railway.app/users/create",
             this.formData
           )
           .then((response) => {
@@ -139,7 +141,7 @@ export default {
           .catch((error) => {
             console.log(error);
           });
-        this.$router.push('/login'); // redirect to login after registering
+        this.$router.push("/login"); // redirect to login after registering
       }
     },
   },
@@ -147,7 +149,7 @@ export default {
 </script>
 
 <style>
-h1{
+h1 {
   display: flex;
   justify-content: center;
   padding: 20px;

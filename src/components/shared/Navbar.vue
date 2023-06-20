@@ -12,7 +12,7 @@
       <li class="nav-item">
         <router-link to="/publishers">Editoriales</router-link>
       </li>
-<!--  TFG page    
+      <!--  TFG page    
       <li class="nav-item">
         <router-link to="/community">Comunidades</router-link>
       </li> -->

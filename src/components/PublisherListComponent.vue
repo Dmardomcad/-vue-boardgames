@@ -1,14 +1,14 @@
 <template>
-    <section class="publisher-section">
-      <div v-if="loading"><Spinner /></div>
-      <div class="publishers-container" v-else>
-        <PublisherCard
-          v-for="publisher in publishers"
-          :key="publisher.id"
-          :publisher="publisher"
-        />
-      </div>
-    </section>
+  <section class="publisher-section">
+    <div v-if="loading"><Spinner /></div>
+    <div class="publishers-container" v-else>
+      <PublisherCard
+        v-for="publisher in publishers"
+        :key="publisher.id"
+        :publisher="publisher"
+      />
+    </div>
+  </section>
 </template>
 
 <script>
@@ -23,9 +23,9 @@ export default {
   },
   data() {
     return {
-        loading: true,
-        publishers: [],
-    }
+      loading: true,
+      publishers: [],
+    };
   },
   mounted() {
     axios
@@ -37,7 +37,7 @@ export default {
       .catch((error) => {
         console.log(error);
       });
-  }
+  },
 };
 </script>
 

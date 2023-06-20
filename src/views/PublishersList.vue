@@ -1,6 +1,6 @@
 <template>
-    <h1>LISTA DE EDITORES</h1>
-    <PublisherListComponent />
+  <h1>LISTA DE EDITORES</h1>
+  <PublisherListComponent />
 </template>
 
 <script>

@@ -13,9 +13,12 @@
         Proximamente podrás encontrar personas en tu zona para jugar a juegos de
         mesa.
       </p>
-      <p>Puedes ir a nuestra sección de juegos para buscar información sobre distintos juegos y comentar junto a otros usuarios</p>
+      <p>
+        Puedes ir a nuestra sección de juegos para buscar información sobre
+        distintos juegos y comentar junto a otros usuarios
+      </p>
       <router-link to="/boardgames">
-            <button class="btn-primary">AQUÍ</button>
+        <button class="btn-primary">AQUÍ</button>
       </router-link>
     </div>
   </section>
@@ -25,6 +28,4 @@
 export default {};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
