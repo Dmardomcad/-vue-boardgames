@@ -1,15 +1,9 @@
 <template>
-    <div>
-        WIP COMING SOON*
-    </div>
+  <div>WIP COMING SOON*</div>
 </template>
 
 <script>
-    export default {
-        
-    }
+export default {};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

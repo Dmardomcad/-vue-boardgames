@@ -8,14 +8,17 @@
     />
     <div class="home-info">
       <h1 class="home-info-title">Bienvenido a GameHub</h1>
-      <h2 class="home-info-subtitle">Tu portal de juegos de mesa y cada día el de más gente.</h2>
+      <h2 class="home-info-subtitle">
+        Tu portal de juegos de mesa y cada día el de más gente.
+      </h2>
       <p class="home-info-text">
         Proximamente podrás encontrar personas en tu zona para jugar a juegos de
         mesa.
       </p>
       <p class="home-info-text">
         Puedes ir a nuestra sección de juegos para buscar información sobre
-        distintos juegos y comentar junto a otros usuarios, buscar distintos juegos con categorías y comprobar la dificultad de cada uno.
+        distintos juegos y comentar junto a otros usuarios, buscar distintos
+        juegos con categorías y comprobar la dificultad de cada uno.
       </p>
       <router-link to="/boardgames">
         <button class="btn-primary">VER LISTA DE JUEGOS</button>
@@ -29,7 +32,7 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-  .home-info-text{
-    padding: 1rem;
-  }
+.home-info-text {
+  padding: 1rem;
+}
 </style>

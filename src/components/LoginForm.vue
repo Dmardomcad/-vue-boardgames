@@ -71,7 +71,8 @@ export default {
 
     submitForm() {
       if (!this.formData.username.trim() && !this.formErrors.usernameError) {
-        this.formErrors.usernameError = "Por favor, introduce tu nombre de usuario.";
+        this.formErrors.usernameError =
+          "Por favor, introduce tu nombre de usuario.";
       }
 
       if (!this.formData.password.trim() && !this.formErrors.passwordError) {
