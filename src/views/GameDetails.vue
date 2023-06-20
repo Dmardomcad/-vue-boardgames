@@ -116,7 +116,6 @@ export default {
         .then((response) => {
           this.game = response.data;
           this.comments = response.data.comments || [];
-          console.log(this.game.comments);
         })
         .catch((error) => {
           console.error(error);
@@ -155,7 +154,6 @@ export default {
                 }
               )
               .then((response) => {
-                console.log(response.data);
                 this.fetchGameDetails();
                 this.commentData.content = "";
               })
@@ -187,7 +185,6 @@ export default {
           }
         )
         .then((response) => {
-          console.log(response.data);
           this.fetchGameDetails();
         })
         .catch((error) => {

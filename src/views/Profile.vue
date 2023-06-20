@@ -61,7 +61,6 @@ export default {
           const userData = response.data;
           this.email = userData.email;
           this.comments = userData.comments;
-          console.log(userData);
         })
         .catch((error) => {
           console.error(error);

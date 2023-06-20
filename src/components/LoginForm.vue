@@ -79,8 +79,6 @@ export default {
       }
       // if there are no errors send the data
       if (!this.formErrors.usernameError && !this.formErrors.passwordError) {
-        console.log("Formulario válido, logeando usuario...");
-        console.log(this.formData);
         axios
           .post(
             "https://boardgameapi-production.up.railway.app/token",
@@ -94,8 +92,6 @@ export default {
           )
           .then((response) => {
             const token = response.data;
-            console.log("Token de acceso", token);
-            console.log("Usuario...", this.formData.username);
             // Save data using the UserStore
             const userStore = useUserStore();
             userStore.login();

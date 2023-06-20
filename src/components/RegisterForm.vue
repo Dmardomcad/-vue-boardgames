@@ -145,15 +145,12 @@ export default {
         !this.formErrors.emailError &&
         !this.formErrors.passwordError
       ) {
-        console.log("Formulario válido, registrando usuario...");
-        console.log(this.formData);
         axios
           .post(
             "https://boardgameapi-production.up.railway.app/users/create",
             this.formData
           )
           .then((response) => {
-            console.log(response.data);
           })
           .catch((error) => {
             console.log(error);
