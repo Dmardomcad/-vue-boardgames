@@ -3,19 +3,20 @@
   <section class="boardgame-details">
     <img class="boardgame-img" :src="game.detailImage" :alt="game.name" />
     <div class="boardgame-info">
-      <p>Dificultad: {{ game.difficulty }}</p>
-      <p>Categoría: {{ game.category }}</p>
-      <p>Descripcion: {{ game.description }}</p>
+      <p class="boardgame-info-text"><strong>Dificultad: </strong>{{ game.difficulty }}</p>
+      <p class="boardgame-info-text"><strong>Categoría: </strong> {{ game.category }}</p>
+      <p class="boardgame-info-text"><strong>Descripcion: </strong> {{ game.description }}</p>
     </div>
   </section>
   <section class="comments-section" v-if="comments.length > 0">
-    <h2>Comentarios:</h2>
+    <h2 class="comment-section-title">Comentarios:</h2>
     <form
       class="comment-form"
       v-if="isLoggedIn"
       @submit.prevent="submitComment"
     >
-      <label class="comment-label" for="comment">Aquí tu comentario</label>
+    <div class="comment-field">
+      <label class="comment-label" for="comment">Aquí tu comentario:</label>
       <input
         class="comment-input"
         type="text"
@@ -25,8 +26,9 @@
         v-model="commentData.content"
         @input="validateComment"
       />
-      <span v-if="commentErrors.errorText">{{ commentErrors.errorText }}</span>
+      <span class="error" v-if="commentErrors.errorText">{{ commentErrors.errorText }}</span>
       <button class="btn-primary" type="submit">Enviar comentario</button>
+    </div>
     </form>
     <ul class="comment-list">
       <li
@@ -35,7 +37,7 @@
         v-for="(comment, index) in comments"
         :key="comment.id"
       >
-        <sub>By:</sub>
+        <sub>Por:</sub>
         <h2>{{ comment.username }}</h2>
         <p>{{ comment.content }}</p>
         <button
@@ -43,7 +45,7 @@
           v-if="isCommentOwner(comment)"
           @click="deleteComment(comment.id)"
         >
-          BORRAR COMENTARIO
+          BORRAR
         </button>
       </li>
     </ul>
@@ -55,8 +57,9 @@
       v-if="isLoggedIn"
       @submit.prevent="submitComment"
     >
+    <div class="comment-field">
       <label class="comment-label" for="comment"
-        >Se el primero en comentar...</label
+        >Se el primero en comentar:</label
       >
       <input
         class="comment-input"
@@ -67,8 +70,9 @@
         v-model="commentData.content"
         @input="validateComment"
       />
-      <span v-if="commentErrors.errorText">{{ commentErrors.errorText }}</span>
+      <span class="error" v-if="commentErrors.errorText">{{ commentErrors.errorText }}</span>
       <button class="btn-primary" type="submit">Enviar comentario</button>
+    </div>
     </form>
   </section>
 </template>
@@ -201,7 +205,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.error {
+  color: red;
+}
 .btn-primary {
-  margin-left: 1rem;
+  margin-top: 5px;
 }
 </style>

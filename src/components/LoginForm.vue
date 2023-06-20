@@ -60,16 +60,23 @@ export default {
       }
     },
     validatePassword() {
-      const passwordRegex = /^(?=.*[0-9]).{1,8}$/;
+      const passwordRegex = /^(?=.*[0-9]).{5,10}$/;
       if (!passwordRegex.test(this.formData.password)) {
         this.formErrors.passwordError =
-          "La contraseña debe tener entre 1 y 8 caracteres, y al menos debe tener un número.";
+          "La contraseña debe tener de 5 a 10 caracteres, y al menos debe tener un número.";
       } else {
         this.formErrors.passwordError = "";
       }
     },
 
     submitForm() {
+      if (!this.formData.username.trim() && !this.formErrors.usernameError) {
+        this.formErrors.usernameError = "Por favor, introduce tu nombre de usuario.";
+      }
+
+      if (!this.formData.password.trim() && !this.formErrors.passwordError) {
+        this.formErrors.passwordError = "Por favor, introduce tu contraseña.";
+      }
       // if there are no errors send the data
       if (!this.formErrors.usernameError && !this.formErrors.passwordError) {
         console.log("Formulario válido, logeando usuario...");
@@ -97,7 +104,7 @@ export default {
             this.$router.push("/"); // redirect to home after registering
           })
           .catch(
-            (error) =>
+            () =>
               (this.formErrors.passwordError =
                 "Tu contraseña o nombre de usuario no coinciden")
           );

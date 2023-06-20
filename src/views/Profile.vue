@@ -1,17 +1,18 @@
 <template>
-  <h1>Profile</h1>
+  <h1>Perfil</h1>
   <section class="user-page">
+    <h1>Datos del usuario</h1>
     <section class="user-info">
-      <p><strong>Username:</strong> {{ username }}</p>
+      <p><strong>Nombre de usuario:</strong> {{ username }}</p>
       <p><strong>Email:</strong> {{ email }}</p>
     </section>
 
-    <div v-if="comments.length === 0">
+    <section class="user-comments" v-if="comments.length === 0">
       <h2>Comentarios:</h2>
       <h2>Este usuario no ha realizado ningún comentario...</h2>
-    </div>
+    </section>
     <section class="user-comments" v-else-if="comments && comments.length > 0">
-      <h2>Comentarios:</h2>
+      <h1>Comentarios de este usuario:</h1>
       <ul class="profile-comments-list">
         <li
           class="profile-comments-list-item"

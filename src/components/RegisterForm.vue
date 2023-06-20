@@ -111,16 +111,33 @@ export default {
     },
 
     validatePassword() {
-      const passwordRegex = /^(?=.*[0-9]).{1,8}$/;
+      const passwordRegex = /^(?=.*[0-9]).{5,10}$/;
       if (!passwordRegex.test(this.formData.password)) {
         this.formErrors.passwordError =
-          "La contraseña debe tener entre 1 y 8 caracteres, y al menos debe tener un número.";
+          "La contraseña debe tener de 5 a 10 caracteres, y al menos debe tener un número.";
       } else {
         this.formErrors.passwordError = "";
       }
     },
 
     submitForm() {
+      if (!this.formData.username) {
+        this.formErrors.usernameError = "Por favor, introduce un nombre de usuario.";
+      } else {
+        this.formErrors.usernameError = "";
+      }
+
+      if (!this.formData.email) {
+        this.formErrors.emailError = "Por favor, introduce un email.";
+      } else {
+        this.formErrors.emailError = "";
+      }
+
+      if (!this.formData.password) {
+        this.formErrors.passwordError = "Por favor, introduce una contraseña.";
+      } else {
+        this.formErrors.passwordError = "";
+      }
       // If there are no errors, send the data
       if (
         !this.formErrors.usernameError &&

@@ -7,6 +7,9 @@
         /></router-link>
       </li>
       <li class="nav-item">
+        <router-link to="/">Inicio</router-link>
+      </li>
+      <li class="nav-item">
         <router-link to="/boardgames">Lista de juegos</router-link>
       </li>
       <li class="nav-item">

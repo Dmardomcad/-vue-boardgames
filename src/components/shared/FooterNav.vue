@@ -4,8 +4,9 @@
       <li class="nav-item">
         <router-link to="/contact">Contacto</router-link>
       </li>
-      <li class="nav-item">FAQ</li>
-      <li class="nav-item">Sobre nosotros...</li>
+      <li class="nav-item">
+        <router-link to="/">Sobre nosotros</router-link>
+      </li>
     </ul>
   </nav>
 </template>
