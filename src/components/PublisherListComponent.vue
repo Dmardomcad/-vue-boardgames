@@ -28,7 +28,11 @@ export default {
     };
   },
   mounted() {
-    axios
+    this.fetchPublisherData();
+  },
+  methods: {
+    fetchPublisherData() {
+      axios
       .get("https://boardgameapi-production.up.railway.app/publishers")
       .then((response) => {
         this.loading = false;
@@ -37,7 +41,8 @@ export default {
       .catch((error) => {
         console.log(error);
       });
-  },
+    }
+  }
 };
 </script>
 

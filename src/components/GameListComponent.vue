@@ -66,7 +66,11 @@ export default {
     },
   },
   mounted() {
-    axios
+    this.fetchBoardgames();
+  },
+  methods: {
+    fetchBoardgames() {
+      axios
       .get("https://boardgameapi-production.up.railway.app/boardgames")
       .then((response) => {
         this.loading = false;
@@ -76,8 +80,7 @@ export default {
       .catch((error) => {
         console.log(error);
       });
-  },
-  methods: {
+    },
     performSearch(searchTerm) {
       if (searchTerm) {
         if (this.selectedCategory === "") {
