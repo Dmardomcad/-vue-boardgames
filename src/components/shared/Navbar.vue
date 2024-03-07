@@ -31,7 +31,7 @@
             <button class="btn-primary">REGISTRARSE</button>
           </router-link>
           <router-link to="/login">
-            <sub>¿Ya tienes cuenta?...</sub>
+            <p>¿Ya tienes cuenta?...</p>
           </router-link>
         </div>
       </li>

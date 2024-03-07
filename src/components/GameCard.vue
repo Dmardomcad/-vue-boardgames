@@ -1,11 +1,12 @@
 <template>
-  <div class="game-card">
+  <article class="game-card">
     <router-link :to="'/boardgames/' + game.id">
-      <h2>{{ game.name }}</h2>
       <img class="game-img" :src="game.detailImage" :alt="game.name" />
+      <h2>{{ game.name }}</h2>
+      <p class="game-category">{{ game.category }}</p>
+      <p>Comentarios: {{ game.comment.length }}</p>
     </router-link>
-    <p>{{ game.description }}</p>
-  </div>
+  </article>
 </template>
 
 <script>

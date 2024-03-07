@@ -1,5 +1,5 @@
 <template>
-  <h1>REGISTRO</h1>
+  <h1 class="principal-title">REGISTRO</h1>
   <form class="register-form" @submit.prevent="submitForm">
     <div class="register-container">
       <label for="username">Nombre de usuario:</label>
@@ -163,11 +163,6 @@ export default {
 </script>
 
 <style>
-h1 {
-  display: flex;
-  justify-content: center;
-  padding: 20px;
-}
 .error {
   color: red;
 }

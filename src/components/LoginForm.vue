@@ -1,5 +1,5 @@
 <template>
-  <h1>LOGIN</h1>
+  <h1 class="principal-title">LOGIN</h1>
   <form class="register-form" @submit.prevent="submitForm">
     <div class="register-container">
       <label for="username">Nombre de usuario:</label>

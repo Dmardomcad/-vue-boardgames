@@ -3,9 +3,11 @@
     <div v-if="loading">
       <Spinner />
     </div>
-    <div v-else>
-      <SearchBar @search="performSearch" />
-      <div class="category-buttons">
+    <template v-else>
+      <section class="searchbar-section">
+        <SearchBar @search="performSearch" />
+      </section>
+      <section class="category-buttons">
         <button
           v-for="category in categories"
           :key="category"
@@ -17,16 +19,16 @@
         >
           {{ category }}
         </button>
-      </div>
-      <div class="game-card-container">
+      </section>
+      <section class="game-card-container">
         <GameCard v-for="game in displayedGames" :key="game.id" :game="game" />
-      </div>
+      </section>
       <paginate
         :current-page="currentPage"
         :total-pages="totalPages"
         @page-change="changePage"
       ></paginate>
-    </div>
+    </template>
   </section>
 </template>
 
@@ -50,7 +52,7 @@ export default {
       games: [],
       filteredGames: [],
       currentPage: 1,
-      pageSize: 4,
+      pageSize: 8,
       categories: ["Miniaturas", "Cartas", "Habilidad", "Social"],
       selectedCategory: "",
     };

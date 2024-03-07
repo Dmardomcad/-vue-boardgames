@@ -1,5 +1,5 @@
 <template>
-  <h1>LISTA DE JUEGOS</h1>
+  <h1 class="principal-title">LISTA DE JUEGOS</h1>
   <GameListComponent />
 </template>
 

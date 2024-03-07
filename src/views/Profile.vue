@@ -1,5 +1,5 @@
 <template>
-  <h1>Perfil</h1>
+  <h1 class="principal-title">Perfil</h1>
   <section class="user-page">
     <h1>Datos del usuario</h1>
     <section class="user-info">

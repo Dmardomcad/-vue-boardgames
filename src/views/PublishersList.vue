@@ -1,5 +1,5 @@
 <template>
-  <h1>LISTA DE EDITORES</h1>
+  <h1 class="principal-title">LISTA DE EDITORES</h1>
   <PublisherListComponent />
 </template>
 

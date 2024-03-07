@@ -1,5 +1,5 @@
 <template>
-  <h1>{{ publisher.name }}</h1>
+  <h1 class="principal-title">{{ publisher.name }}</h1>
   <p class="publisher-info">{{ publisher.info }}</p>
   <section>
     <h2>Juegos:</h2>
