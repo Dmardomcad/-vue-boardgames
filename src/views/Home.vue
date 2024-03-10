@@ -6,7 +6,7 @@
       src="https://images.pexels.com/photos/8111328/pexels-photo-8111328.jpeg?cs=srgb&dl=pexels-pavel-danilyuk-8111328.jpg&fm=jpg"
       alt=""
     />
-    <div class="home-info">
+    <section class="home-info">
       <h1 class="home-info-title">Bienvenido a GameHub</h1>
       <h2 class="home-info-subtitle">
         Tu portal de juegos de mesa y cada día el de más gente.
@@ -23,7 +23,7 @@
       <router-link to="/boardgames">
         <button class="btn-primary">VER LISTA DE JUEGOS</button>
       </router-link>
-    </div>
+    </section>
   </section>
 </template>
 

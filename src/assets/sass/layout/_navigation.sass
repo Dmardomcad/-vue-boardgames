@@ -1,25 +1,15 @@
-/* .home-nav
- background-color: lightgreen
- ul
- display: flex
- justify-content: space-between
- align-items: center
- list-style: none
- width: 100% */
 
 nav a.router-link-exact-active
-    color: white
+    color: $accent-color
 
 .nav-main
     width: 100%
 
 .nav-list
-    background: #00abff
-    box-shadow: 0px 0px 10px #000000
-    padding: 1rem 0
+    background: $navigation-color
+    box-shadow: 0px 0px 2px #000000
     border-radius: 0.2rem
     display: flex
-    justify-content: flex-end
     align-items: center
 
 .nav-item
@@ -35,20 +25,20 @@ nav a.router-link-exact-active
     text-decoration: none
     color: black
     transition: all 200ms ease-in
-    font-family: 'Aleo', serif
+    font-family: 'Fredoka', sans-serif
     font-size: 1.2rem
 
 .nav-item a:hover
-    color: #fdb74a
+    color: $accent-color
 
 .nav-item:first-child
     margin-right: auto
     margin-left: 2rem
 
 .btn-primary
-    font-family: 'Aleo', serif
+    font-family: 'Fredoka', sans-serif
     font-size: 1rem
-    background: #fdb74a
+    background: $accent-color
     border: none
     outline: none
     border-radius: 0.2rem
@@ -56,9 +46,9 @@ nav a.router-link-exact-active
     cursor: pointer
     transition: all 200ms ease-in
 .btn-primary-logout
-    font-family: 'Aleo', serif
+    font-family: 'Fredoka', sans-serif
     font-size: 1rem
-    background: #fdb74a
+    background: $accent-color
     border: none
     outline: none
     border-radius: 0.2rem

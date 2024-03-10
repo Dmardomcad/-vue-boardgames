@@ -3,7 +3,7 @@
     <ul class="nav-list">
       <li class="nav-item">
         <router-link to="/"
-          ><img class="nav-img" src="@/assets/img/dice-game-icon.png" alt=""
+          ><img class="nav-img" src="@/assets/img/board2play-logo.png" alt=""
         /></router-link>
       </li>
       <li class="nav-item">
@@ -61,6 +61,6 @@ export default {
 
 <style lang="scss" scoped>
 .nav-img {
-  width: 3rem;
+  width: 10rem;
 }
 </style>
