@@ -1,11 +1,12 @@
 <template>
   <h1 class="home-title">Bienvenidos a GameHub</h1>
   <section class="home">
-    <img
-      class="home-img"
-      src="https://images.pexels.com/photos/8111328/pexels-photo-8111328.jpeg?cs=srgb&dl=pexels-pavel-danilyuk-8111328.jpg&fm=jpg"
-      alt=""
-    />
+    <section class="home-video-section">
+      <video class="home__video" loop="true" autoplay="autoplay" muted>
+        <source src="../assets/video/pexels-pavel-danilyuk-shorter.mp4">
+        Su navegador no soporta contenido multimedia
+      </video>
+    </section>
     <section class="home-info">
       <h1 class="home-info-title">Bienvenido a GameHub</h1>
       <h2 class="home-info-subtitle">
@@ -32,7 +33,4 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-.home-info-text {
-  padding: 1rem;
-}
 </style>

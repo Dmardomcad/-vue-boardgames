@@ -1,10 +1,11 @@
 <template>
   <h1 class="principal-title">Perfil</h1>
   <section class="user-page">
-    <h1>Datos del usuario</h1>
     <section class="user-info">
-      <p><strong>Nombre de usuario:</strong> {{ username }}</p>
-      <p><strong>Email:</strong> {{ email }}</p>
+      <h2>{{ username }}</h2>
+      <img class="profile-picture" src="../assets/img/profile-picture-1.png">
+      <p>Email: {{ email }}</p>
+      <p>Pais: {{ country }}</p>
     </section>
 
     <section class="user-comments" v-if="comments.length === 0">
@@ -12,15 +13,16 @@
       <h2>Este usuario no ha realizado ningún comentario...</h2>
     </section>
     <section class="user-comments" v-else-if="comments && comments.length > 0">
-      <h1>Comentarios de este usuario:</h1>
+      <h2 class="profile-comments-title">Comentarios:</h2>
       <ul class="profile-comments-list">
         <li
           class="profile-comments-list-item"
           v-for="comment in comments"
           :key="comment.id"
         >
-          <router-link :to="'/boardgames/' + comment.boardgameId">
-            <p>{{ comment.content }}</p>
+          <h3>{{ comment.name }}</h3>
+          <router-link class="profile-comment-link" :to="'/boardgames/' + comment.boardgameId">
+            <p class="profile-comment-content">{{ comment.content }}</p>
           </router-link>
         </li>
       </ul>
@@ -43,6 +45,7 @@ export default {
   data() {
     return {
       email: "",
+      country: "",
       comments: [],
     };
   },

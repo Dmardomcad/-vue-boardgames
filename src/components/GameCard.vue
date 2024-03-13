@@ -1,6 +1,6 @@
 <template>
   <article class="game-card">
-    <router-link :to="'/boardgames/' + game.id">
+    <router-link :to="'/boardgames/' + game.id" class="game-card-link">
       <img class="game-img" :src="game.detailImage" :alt="game.name" />
       <h2>{{ game.name }}</h2>
       <p class="game-category">{{ game.category }}</p>
