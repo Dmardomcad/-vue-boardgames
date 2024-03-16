@@ -14,7 +14,7 @@
       </p>
     </div>
   </section>
-  <section class="comments-section" v-if="comments.length > 0">
+  <section class="comment-section" v-if="comments.length > 0">
     <h2 class="comment-section-title">Comentarios:</h2>
     <form
       class="comment-form"
@@ -106,6 +106,7 @@ export default {
   },
   mounted() {
     this.fetchGameDetails();
+    window.scrollTo(0, 0);
   },
   methods: {
     validateComment() {

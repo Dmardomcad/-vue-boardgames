@@ -4,17 +4,16 @@ nav a.router-link-exact-active
 
 .nav-main
     width: 100%
+    display: flex
+    justify-content: space-between
 
 .nav-list
     background: $navigation-color
-    box-shadow: 0px 0px 2px #000000
-    border-radius: 0.2rem
+    //box-shadow: 0px 0px 2px #000000
     display: flex
     align-items: center
-
 .nav-item
     list-style: none
-    margin-right: 2rem
     .nav-item-register
         display: flex
         flex-direction: column
@@ -30,11 +29,6 @@ nav a.router-link-exact-active
 
 .nav-item a:hover
     color: $accent-color
-
-.nav-item:first-child
-    margin-right: auto
-    margin-left: 2rem
-
 .btn-primary
     font-family: 'Fredoka', sans-serif
     font-size: 1rem
