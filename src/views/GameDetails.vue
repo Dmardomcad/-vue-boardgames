@@ -3,15 +3,15 @@
   <section class="boardgame-details">
     <img class="boardgame-img" :src="game.detailImage" :alt="game.name" />
     <div class="boardgame-info">
-      <p class="boardgame-info-text">
-        <strong>Dificultad: </strong>{{ game.difficulty }}
-      </p>
-      <p class="boardgame-info-text">
-        <strong>Categoría: </strong> {{ game.category }}
-      </p>
-      <p class="boardgame-info-text">
-        <strong>Descripcion: </strong> {{ game.description }}
-      </p>
+      <div class="boardgame-info-text">
+        <h2 >Dificultad: </h2><p class="boardgame-info-text-difficulty">{{ game.difficulty }}</p>
+      </div>
+      <div class="boardgame-info-text">
+        <h2 >Categoría: </h2> <p class="boardgame-info-text-category">{{ game.category }}</p> 
+      </div>
+      <div class="boardgame-info-text">
+        <h2 class="boardgame-info-text-description">Descripcion: </h2><p>{{ game.description }}</p>
+      </div>
     </div>
   </section>
   <section class="comment-section" v-if="comments.length > 0">
@@ -45,7 +45,6 @@
         v-for="(comment, index) in comments"
         :key="comment.id"
       >
-        <sub>Por:</sub>
         <h2>{{ comment.username }}</h2>
         <p>{{ comment.content }}</p>
         <button
@@ -53,7 +52,7 @@
           v-if="isCommentOwner(comment)"
           @click="deleteComment(comment.id)"
         >
-          BORRAR
+        <i class="fa-solid fa-trash-can"></i>
         </button>
       </li>
     </ul>

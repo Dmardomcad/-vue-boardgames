@@ -8,9 +8,16 @@
 .boardgame-info
     width: 40%
 .boardgame-info-text
+    display: flex
+    flex-wrap: wrap
     padding: 0.7rem
+    align-items: center
+    .boardgame-info-text-category
+        margin-left: 5px
+    .boardgame-info-text-difficulty
+        margin-left: 5px
 .comment-list-item-odd 
-    background-color: #e6ccba
+    background-color: #a9d7ff
 .comment-list-item
     list-style: none
     padding: 0.7rem
@@ -18,15 +25,16 @@
     border-radius: 10px
     border-width: thin
     border-color: #61b2f9
-    h2
-        margin-left: 2rem
+    display: flex
+    flex-direction: column
     p
-        margin-left: 4rem
+        padding: 5px
 .comment-section
     display: flex
     justify-content: center
     align-items: center
     flex-direction: column
+    padding: 2rem
 .comment-section-title
     display: flex
     justify-content: flex-start
@@ -37,17 +45,20 @@
 .comment-delete-button
     font-family: 'Ubuntu', sans-serif
     font-size: 1rem
-    background: #e89c5e
+    background: none
     border: none
     outline: none
     border-radius: 0.2rem
     padding: 0.5rem 1rem
     cursor: pointer
     transition: all 200ms ease-in
+    align-self: flex-end
 .game-details-title
     display: flex
     justify-content: center
     padding: 2rem
+    font-family: "Fredoka", sans-serif
+    font-size: 36px
 .comment-field
     display: flex
     justify-content: center
@@ -55,3 +66,15 @@
     flex-wrap: wrap
 .comment-label
     margin-bottom: 10px
+@media(max-width: 800px)
+    .boardgame-img
+        width: 100%
+    .boardgame-info
+        width: 100%
+@media(max-width: 650px)
+    .comment-form
+        margin-bottom: 0.4rem
+        width: 100%
+@media(max-width: 450px)
+    .comment-field
+        flex-wrap: nowrap

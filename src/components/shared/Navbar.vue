@@ -49,13 +49,13 @@
           <router-link to="/publishers">Editoriales</router-link>
         </li>
         <li class="nav-item" v-if="user.isLoggedIn">
-          <div>
+          <div class="dropdown-nav-div">
             <router-link to="/profile"> Perfil</router-link>
             <button class="btn-primary-logout" @click="logout">Logout</button>
           </div>
         </li>
         <li class="nav-item" v-else>
-          <div class="nav-item-register">
+          <div class="dropdown-nav-div">
             <router-link to="/register">
               <button class="btn-primary">REGISTRARSE</button>
             </router-link>
@@ -103,7 +103,7 @@ export default {
     },
     checkScreen() {
       this.windowWith = window.innerWidth;
-      if (this.windowWith <= 750) {
+      if (this.windowWith <= 900) {
         this.mobile = true
         return
       }
@@ -130,8 +130,14 @@ header {
 .mobile-menu{
   display: flex;
 }
+.mobile-menu-togglebutton{
+  border: none;
+  background: #ffffff
+}
 .mobile-vector-icon {
   width: 50px;
+  cursor: pointer;
+  padding: 6px;
 }
 .logo {
   display: block;
@@ -141,21 +147,39 @@ header {
   display: flex;
   flex-direction: column;
   border-style: solid;
+  justify-content: space-evenly;
   border-width: thin;
   border-radius: 5px;
   width: 100%;
   max-width: 250px;
-  height: 100%;
   position: fixed;
   background-color: #f7f7f7;
   top: 0;
   left: 0;
-
   li {
     margin-left: 0;
     .link {
       color: #000;
     }
+  }
+  .dropdown-nav-div{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .dropdown-nav-div > .btn-primary-logout {
+    margin-left: 0px;
+    margin-top: 5px;
+  }
+  .nav-item-hasaccount {
+    margin-left: 0px;
+    margin-top: 5px;
+  }
+  .nav-item {
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
   }
 }
 .nav-item-hasaccount{
@@ -184,7 +208,7 @@ header {
   margin-right: 2rem;
 }
 
-@media (min-width: 751px) {
+@media (min-width: 900px) {
     .mobile-menu {
     display: none;
   }

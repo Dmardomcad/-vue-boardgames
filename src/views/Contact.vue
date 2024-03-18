@@ -1,12 +1,12 @@
 <template>
   <h1 class="principal-title">CONTACTO</h1>
-  <section>
+  <section class="contact-section">
     <form class="contact-form" @submit.prevent="submitForm">
       <div class="contact-form-field">
         <label class="contact-label-email" for="email">Email:</label>
         <input
           class="contact-input-email"
-          placeholder="Por favor escriba su email..."
+          placeholder="Email..."
           type="email"
           id="email"
           v-model.trim="email"
@@ -66,7 +66,6 @@ export default {
       if (!this.email && !this.emailError) {
         this.emailError = "Por favor, escribe un correo electrónico.";
       }
-      //backend functionanility needed for my TFG
       if (!this.emailError && !this.messageError) {
         this.email = "";
         this.message = "";

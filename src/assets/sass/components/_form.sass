@@ -8,9 +8,32 @@
     border-width: thin
     border-color: $primary-color
     max-width: 40vw
-
+    .register-subtext
+        text-align: right
+        margin-top: 10px
+        a
+            text-decoration: none
+        a:hover
+            color: #00ABFF
+    .register-input
+        font-size: 2rem
+        font-family: "Fredoka", sans-serif
+        border: $primary-color
+        border-style: solid
+        border-width: thin
 .register-container
     display: flex
     flex-direction: column
     padding: 0.3rem
     min-width: 100px
+@media(max-width: 680px)
+    .register-form
+        display: flex
+        flex-direction: column
+        width: 80%
+        padding: 1rem
+        border-radius: 5px
+        border-style: solid
+        border-width: thin
+        border-color: #00ABFF
+        max-width: 500px

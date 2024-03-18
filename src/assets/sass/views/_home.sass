@@ -1,15 +1,10 @@
 .home
     display: flex
     flex-wrap: wrap
-    .home-video-section
-      display: flex
-      justify-content: center
-      .home__video
-        width: 50%
 .home-title 
   display: flex
   justify-content: center
-  font-size: 4rem
+  font-size: 4vw
   padding: 20px
 .home-img
   width: 50vw
@@ -19,3 +14,52 @@
   flex-direction: column
   padding: 5rem
   align-items: center
+  margin-top: 50px
+  .home-info-text
+    font-family: "Fredoka", sans-serif
+    font-weight: 200
+    font-size: 20px
+    margin-top: 10px
+.home-video-section
+  display: flex
+  justify-content: center
+  position: relative
+  .home-title
+    position: absolute
+    translate:(-50%, -50%)
+    color: #FDCA40
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px  1px 0 #000,1px  1px 0 #000
+  .video-image-logo
+    position: absolute
+    width: 20%
+    top: 60%
+  .home__video
+    width: 50%
+    filter: contrast(70%)
+    z-index: -1
+    border-radius: 5px
+.home-btn-primary
+  margin-top: 20px
+@media(max-width: 1270px)
+  .home-video-section
+    .video-image-logo
+      top: 75%
+    .home__video
+      width: 60%
+@media(max-width: 1000px)
+  .home-video-section
+    .home__video
+      width: 70%
+@media(max-width: 700px)
+  .home-video-section
+    .home-title
+      font-size: 6vw
+@media(max-width: 500px)
+  .home-info
+    padding: 3rem
+    margin-top: 30px
+  .home-video-section
+    .video-image-logo
+      top:80%
+    .home__video
+      width: 100%

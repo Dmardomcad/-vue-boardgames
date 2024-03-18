@@ -1,7 +1,5 @@
 <template>
   <div class="paginate">
-    <button class="before-next"
-    @click="previousPage()"> &lt;</button>
     <button class="paginate-button"
       v-for="pageNumber in totalPages"
       :key="pageNumber"
@@ -10,8 +8,6 @@
     >
       {{ pageNumber }}
     </button>
-    <button class="before-next"
-    @click="nextPage()"> > </button>
   </div>
 </template>
 

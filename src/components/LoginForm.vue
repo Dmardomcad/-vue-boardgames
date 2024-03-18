@@ -4,6 +4,7 @@
     <div class="register-container">
       <label for="username">Nombre de usuario:</label>
       <input
+        class="register-input"
         type="text"
         id="username"
         v-model="formData.username"
@@ -18,6 +19,7 @@
     <div class="register-container">
       <label for="password">Contraseña:</label>
       <input
+        class="register-input"
         type="password"
         id="password"
         v-model="formData.password"
@@ -29,7 +31,7 @@
       </div>
     </div>
     <button class="btn-primary" type="submit">Login</button>
-    <p><router-link to="/register">No tengo una cuenta...</router-link></p>
+    <p class="register-subtext"><router-link to="/register">No tengo una cuenta...</router-link></p>
   </form>
 </template>
 

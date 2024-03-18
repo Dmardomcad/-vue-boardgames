@@ -5,7 +5,6 @@
       <h2>{{ username }}</h2>
       <img class="profile-picture" src="../assets/img/profile-picture-1.png">
       <p>Email: {{ email }}</p>
-      <p>Pais: {{ country }}</p>
     </section>
 
     <section class="user-comments" v-if="comments.length === 0">
@@ -20,7 +19,7 @@
           v-for="comment in comments"
           :key="comment.id"
         >
-          <h3>{{ comment.name }}</h3>
+          <h2>{{ comment.name }}</h2>
           <router-link class="profile-comment-link" :to="'/boardgames/' + comment.boardgameId">
             <p class="profile-comment-content">{{ comment.content }}</p>
           </router-link>
