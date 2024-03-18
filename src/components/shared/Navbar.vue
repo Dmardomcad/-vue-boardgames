@@ -156,6 +156,7 @@ header {
   background-color: #f7f7f7;
   top: 0;
   left: 0;
+  z-index: 1;
   li {
     margin-left: 0;
     .link {
