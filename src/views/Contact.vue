@@ -26,8 +26,8 @@
         <span v-if="messageError" class="error-message">{{
           messageError
         }}</span>
-      </div>
       <button class="btn-primary" type="submit">Enviar</button>
+      </div>
     </form>
   </section>
 </template>
