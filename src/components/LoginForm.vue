@@ -100,7 +100,7 @@ export default {
             userStore.login();
             userStore.setToken(token);
             userStore.setUsername(this.formData.username);
-            this.$router.push("/"); // redirect to home after registering
+            this.$router.push("/profile"); // redirect to home after registering
           })
           .catch(
             () =>

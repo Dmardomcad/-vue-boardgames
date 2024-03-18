@@ -19,13 +19,13 @@
       <li class="nav-item" v-if="user.isLoggedIn">
         <div>
           <router-link to="/profile"> Perfil</router-link>
-          <button class="btn-primary-logout" @click="logout">Logout</button>
+          <button class="btn-primary-logout" @click="logout">Desconectarse</button>
         </div>
       </li>
       <li class="nav-item" v-else>
         <div class="nav-item-register">
           <router-link to="/register">
-            <button class="btn-primary">REGISTRARSE</button>
+            <button class="btn-primary">Registrarse</button>
           </router-link>
           <router-link to="/login">
             <p class="nav-item-hasaccount">¿Ya tienes cuenta?</p>
@@ -51,13 +51,13 @@
         <li class="nav-item" v-if="user.isLoggedIn">
           <div class="dropdown-nav-div">
             <router-link to="/profile"> Perfil</router-link>
-            <button class="btn-primary-logout" @click="logout">Logout</button>
+            <button class="btn-primary-logout" @click="logout">Desconectarse</button>
           </div>
         </li>
         <li class="nav-item" v-else>
           <div class="dropdown-nav-div">
             <router-link to="/register">
-              <button class="btn-primary">REGISTRARSE</button>
+              <button class="btn-primary">Registrarse</button>
             </router-link>
             <router-link to="/login">
               <p class="nav-item-hasaccount">¿Ya tienes cuenta?</p>
