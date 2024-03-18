@@ -13,10 +13,6 @@
         Tu portal de juegos de mesa y cada día el de más gente.
       </h2>
       <p class="home-info-text">
-        Proximamente podrás encontrar personas en tu zona para jugar a juegos de
-        mesa.
-      </p>
-      <p class="home-info-text">
         Puedes ir a nuestra sección de juegos para buscar información sobre
         distintos juegos y comentar junto a otros usuarios, buscar distintos
         juegos con categorías y comprobar la dificultad de cada uno.

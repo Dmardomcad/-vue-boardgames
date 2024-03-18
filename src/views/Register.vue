@@ -1,5 +1,7 @@
 <template>
-  <RegisterForm />
+  <section class="register-section">
+    <RegisterForm />
+  </section>
 </template>
 
 <script>

@@ -1,7 +1,6 @@
 <template>
-  <h1 class="principal-title">REGISTRO</h1>
   <form class="register-form" @submit.prevent="submitForm">
-    <h3 class="form-title">Registrate</h3>
+    <h1 class="form-title">Registrate</h1>
     <div class="register-container">
       <label for="username">Nombre de usuario:</label>
       <input

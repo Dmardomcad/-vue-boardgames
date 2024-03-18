@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 
 import Home from "../views/Home.vue";
 import GameList from "../views/GameList.vue";
@@ -11,6 +11,7 @@ import Register from "../views/Register.vue";
 import Login from "../views/Login.vue";
 import NotFound from "../components/shared/NotFound.vue";
 import Contact from "../views/Contact.vue";
+import { useUserStore } from "../stores/UserStore";
 
 const routes = [
   { path: "/", component: Home },
@@ -20,15 +21,31 @@ const routes = [
   { path: "/publishers/:id", component: PublisherDetails },
   { path: "/contact", component: Contact },
   { path: "/community", component: Community },
-  { path: "/profile", component: Profile },
+  { path: 
+    "/profile", 
+    component: Profile,
+    meta:{requiresAuth: true}
+  },
   { path: "/register", component: Register },
   { path: "/login", component: Login },
   { path: "/:pathMatch(.*)*", component: NotFound },
 ];
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes,
 });
+
+router.beforeEach((to, from, next) => {
+  const userStore = useUserStore();
+  if(userStore.isLoggedIn && (to.path === '/login' || to.path === '/register')){
+    next('/profile')
+  }
+  else if(to.meta.requiresAuth && !userStore.isLoggedIn) {
+    next('/login')
+  } else {
+    next()
+  }
+})
 
 export default router;

@@ -7,6 +7,9 @@
 import GameListComponent from "../components/GameListComponent.vue";
 
 export default {
+  mounted() {
+      window.scrollTo(0, 0);
+  },
   components: { GameListComponent },
 };
 </script>

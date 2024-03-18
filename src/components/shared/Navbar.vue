@@ -28,13 +28,13 @@
             <button class="btn-primary">REGISTRARSE</button>
           </router-link>
           <router-link to="/login">
-            <p>¿Ya tienes cuenta?...</p>
+            <p class="nav-item-hasaccount">¿Ya tienes cuenta?</p>
           </router-link>
         </div>
       </li>
     </ul>
     <div class="mobile-menu">
-      <button @click="toggleMobileNav" v-show="mobile" class="far fa-bars" :class="{'icon-active' : mobileNav}"><img class="mobile-vector-icon" src="/src/assets/img/dice-game-icon.png"/></button>
+      <button @click="toggleMobileNav" v-show="mobile" class="mobile-menu-togglebutton" :class="{'icon-active' : mobileNav}"><img class="mobile-vector-icon" src="/src/assets/img/bars-solid.svg"/></button>
     </div>
 
     <transition name="mobile-nav">
@@ -60,7 +60,7 @@
               <button class="btn-primary">REGISTRARSE</button>
             </router-link>
             <router-link to="/login">
-              <p>¿Ya tienes cuenta?...</p>
+              <p class="nav-item-hasaccount">¿Ya tienes cuenta?</p>
             </router-link>
           </div>
         </li>
@@ -157,8 +157,9 @@ header {
       color: #000;
     }
   }
-  
-
+}
+.nav-item-hasaccount{
+  margin-left: 10px;
 }
 .dropdown-nav > .nav-item{
   margin-bottom: 5px;

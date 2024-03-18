@@ -9,9 +9,7 @@ import Home from "./views/Home.vue";
   <main>
     <router-view />
   </main>
-  <footer>
     <FooterNav />
-  </footer>
 </template>
 
 <style scoped>

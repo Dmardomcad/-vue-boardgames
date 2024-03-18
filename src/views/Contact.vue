@@ -3,8 +3,9 @@
   <section>
     <form class="contact-form" @submit.prevent="submitForm">
       <div class="contact-form-field">
-        <label for="email">Email:</label>
+        <label class="contact-label-email" for="email">Email:</label>
         <input
+          class="contact-input-email"
           placeholder="Por favor escriba su email..."
           type="email"
           id="email"
@@ -14,7 +15,7 @@
         <span v-if="emailError" class="error-message">{{ emailError }}</span>
       </div>
       <div class="contact-form-field-textarea">
-        <label for="message">Mensaje:</label>
+        <label class="contact-label-message" for="message">Mensaje:</label>
         <textarea
           class="contact-textarea"
           placeholder="Por favor introduce un mensaje..."

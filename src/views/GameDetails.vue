@@ -59,7 +59,7 @@
     </ul>
   </section>
   <section class="comments-section" v-else>
-    <h2>Este juego no tiene comentarios</h2>
+    <h2 class="comment-section-empty">Este juego no tiene comentarios</h2>
     <form
       class="comment-form"
       v-if="isLoggedIn"
@@ -218,5 +218,10 @@ export default {
 }
 .btn-primary {
   margin-top: 5px;
+}
+.comment-section-empty{
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
 }
 </style>
