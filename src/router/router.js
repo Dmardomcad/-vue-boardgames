@@ -6,7 +6,6 @@ import PublishersList from "../views/PublishersList.vue";
 import PublisherDetails from "../views/PublisherDetails.vue";
 import GameDetails from "../views/GameDetails.vue";
 import Profile from "../views/Profile.vue";
-import Community from "../views/Community.vue";
 import Register from "../views/Register.vue";
 import Login from "../views/Login.vue";
 import NotFound from "../components/shared/NotFound.vue";
@@ -20,7 +19,6 @@ const routes = [
   { path: "/publishers", component: PublishersList },
   { path: "/publishers/:id", component: PublisherDetails },
   { path: "/contact", component: Contact },
-  { path: "/community", component: Community },
   { path: 
     "/profile", 
     component: Profile,
